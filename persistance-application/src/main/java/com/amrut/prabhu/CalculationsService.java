@@ -1,5 +1,7 @@
 package com.amrut.prabhu;
 
+import com.amrut.prabhu.repository.CalculationsRepository;
+import com.amrut.prabhu.repository.DataRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +16,7 @@ public class CalculationsService {
     @Autowired
     DataRepository dataRepository;
     @Autowired
-    CalcualtionsRepository calcualtionsRepository;
+    CalculationsRepository calculationsRepository;
 
     @Transactional
     public BigDecimal calculate(BigDecimal value) throws InterruptedException {
@@ -29,7 +31,7 @@ public class CalculationsService {
         data.setDate(LocalDate.now());
         dataRepository.save(data);
 
-        Optional<Calculations> referenceById = calcualtionsRepository.findById(1l);
+        Optional<Calculations> referenceById = calculationsRepository.findById(1l);
         referenceById.get().setTotal(data.getCumulative());
         Thread.sleep(value.longValue()*1000);
         return referenceById.get().getTotal();

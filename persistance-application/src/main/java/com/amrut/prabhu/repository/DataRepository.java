@@ -1,5 +1,6 @@
-package com.amrut.prabhu;
+package com.amrut.prabhu.repository;
 
+import com.amrut.prabhu.Data;
 import jakarta.persistence.LockModeType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Lock;
