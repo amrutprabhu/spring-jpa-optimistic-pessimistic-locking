@@ -10,5 +10,6 @@ import java.util.Optional;
 public interface CalculationsRepository extends JpaRepository<Calculations, Long> {
 
     @Lock(LockModeType.OPTIMISTIC)
+//    @Lock(LockModeType.PESSIMISTIC_WRITE)
     Optional<Calculations> findById(Long id);
 }

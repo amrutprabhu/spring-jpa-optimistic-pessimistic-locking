@@ -10,5 +10,6 @@ import java.util.Optional;
 public interface DataRepository extends JpaRepository<Data, Long> {
 
     @Lock(LockModeType.OPTIMISTIC)
+//    @Lock(LockModeType.PESSIMISTIC_WRITE)
     Optional<Data> findFirstByOrderByDateDesc();
 }
